@@ -1,6 +1,6 @@
 import passport from 'passport';
 
-function configureApp(app, loginRoute, logoutRoute) {
+function configureApp(app, loginRoute, logoutRoute, userDetailsExtractor) {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use((req, res, next) => {
@@ -14,7 +14,7 @@ function configureApp(app, loginRoute, logoutRoute) {
     passport.authenticate('local', (err, user, params) => {
       if (err) return next(err);
       if (!user) return res.status(401).json({error: params ? params.message : 'Invalid login'});
-      req.login({email, name}, {}, error => {
+      req.login(userDetailsExtractor(user), {}, error => {
         if (error) return res.status(500).json({error});
         return res.json({
           user: {email, name},
