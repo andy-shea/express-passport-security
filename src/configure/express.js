@@ -14,11 +14,10 @@ function configureApp(app, loginRoute, logoutRoute, userDetailsExtractor) {
     passport.authenticate('local', (err, user, params) => {
       if (err) return next(err);
       if (!user) return res.status(401).json({error: params ? params.message : 'Invalid login'});
-        const userDetails = userDetailsExtractor(user);
-        req.login(userDetails, {}, error => {
+        req.login(user, {}, error => {
         if (error) return res.status(500).json({error});
         return res.json({
-          user: userDetails,
+          user: userDetailsExtractor(user),
           returnTo: (req.session && req.session.returnTo) ? req.session.returnTo : '/'
         });
       });
