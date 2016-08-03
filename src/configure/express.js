@@ -5,7 +5,7 @@ function configureApp(app, loginRoute, logoutRoute, userDetailsExtractor) {
   app.use(passport.session());
   app.use((req, res, next) => {
     req.initialData = Object.assign(req.initialData || {}, {
-      users: {user: req.user}
+      users: {user: userDetailsExtractor(req.user)}
     });
     next();
   });
