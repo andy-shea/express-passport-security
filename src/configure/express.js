@@ -3,13 +3,7 @@ import passport from 'passport';
 function configureApp(app, loginRoute, logoutRoute, userDetailsExtractor) {
   app.use(passport.initialize());
   app.use(passport.session());
-  app.use((req, res, next) => {
-    req.initialData = Object.assign(req.initialData || {}, {
-      users: {user: userDetailsExtractor(req.user)}
-    });
-    next();
-  });
-
+  
   app.post(loginRoute, (req, res, next) => {
     passport.authenticate('local', (err, user, params) => {
       if (err) return next(err);
