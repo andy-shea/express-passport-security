@@ -1,6 +1,6 @@
 import passport from 'passport';
 import {Strategy as LocalStrategy} from 'passport-local';
-import {comparePassword} from '../utils/password';
+import {compare} from 'node-password-util';
 
 function configurePassport(findUser, findUserById) {
   passport.use(new LocalStrategy((id, password, done) => {
@@ -9,7 +9,7 @@ function configurePassport(findUser, findUserById) {
         .then(user => {
           if (!user) return false;
           authUser = user;
-          return comparePassword(user, password);
+          return compare(user, password);
         })
         .then(isMatch => {
           if (isMatch) done(null, authUser);

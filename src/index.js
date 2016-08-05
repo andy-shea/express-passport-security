@@ -9,8 +9,6 @@ export function middleware() {
   return {ensureAuthenticated};
 }
 
-export * from './utils/password';
-
 function configure(app, findUser, findUserById, userDetailsExtractor, loginRoute = '/login', logoutRoute = '/logout') {
   ensureAuthenticated = configureMiddleware(loginRoute);
   configurePassport(findUser, findUserById);
