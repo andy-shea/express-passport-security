@@ -9,10 +9,10 @@ export function middleware() {
   return {ensureAuthenticated};
 }
 
-function configure(app, findUser, findUserById, userDetailsExtractor, loginRoute = '/login', logoutRoute = '/logout') {
+function configure(app, findUser, findUserById, userDetailsExtractor, loadInitialData = () => ({}), loginRoute = '/login', logoutRoute = '/logout') {
   ensureAuthenticated = configureMiddleware(loginRoute);
   configurePassport(findUser, findUserById);
-  configureExpress(app, loginRoute, logoutRoute, userDetailsExtractor);
+  configureExpress(app, loginRoute, logoutRoute, userDetailsExtractor, loadInitialData);
 }
 
 export default configure;
