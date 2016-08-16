@@ -10,11 +10,12 @@ function configureApp(app, loginRoute, logoutRoute, userDetailsExtractor, loadIn
       if (!user) return res.status(401).json({error: params ? params.message : 'Invalid login'});
         req.login(user, {}, error => {
         if (error) return res.status(500).json({error});
-        const initialData = loadInitialData(user);
-        return res.json({
-          ...initialData,
-          user: userDetailsExtractor(user),
-          returnTo: (req.session && req.session.returnTo) ? req.session.returnTo : '/'
+        loadInitialData(user, req).then(initialData => {
+          res.json({
+            ...initialData,
+            user: userDetailsExtractor(user),
+            returnTo: (req.session && req.session.returnTo) ? req.session.returnTo : '/'
+          });
         });
       });
     })(req, res, next);
