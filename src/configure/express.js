@@ -23,7 +23,7 @@ function configureApp(app, loginRoute, logoutRoute, userDetailsExtractor, loadIn
 
   app.get(logoutRoute, (req, res) => {
     req.logout();
-    res.end();
+    res.redirect('/');
   })
 }
 
