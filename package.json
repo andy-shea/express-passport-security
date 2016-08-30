@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
-    "bluebird": "^3.4.3",
+    "bluebird": "^3.4.4",
     "node-password-util": "^0.1.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
