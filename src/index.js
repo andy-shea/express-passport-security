@@ -1,8 +1,8 @@
 import configureMiddleware from './configure/middleware';
-import configurePassport from './configure/passport';
-import configureExpress from './configure/express';
 
-let ensureAuthenticated;
+export configurePassport from './configure/passport';
+export configureExpress from './configure/express';
+
 let loginRoute = '/login';
 let logoutRoute = '/logout';
 
@@ -14,10 +14,3 @@ export function configureRoutes(login, logout) {
   loginRoute = login;
   logoutRoute = logout;
 }
-
-function configure(app, findUser, findUserById, userDetailsExtractor, loadInitialData = () => ({})) {
-  configurePassport(findUser, findUserById);
-  configureExpress(app, loginRoute, logoutRoute, userDetailsExtractor, loadInitialData);
-}
-
-export default configure;
