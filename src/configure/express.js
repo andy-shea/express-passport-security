@@ -8,8 +8,8 @@ function configureApp(app, loginRoute, logoutRoute, userDetailsExtractor, loadIn
     passport.authenticate('local', (err, user, params) => {
       if (err) return next(err);
       if (!user) return res.status(401).json({error: params ? params.message : 'Invalid login'});
-        req.login(user, {}, error => {
-        if (error) return res.status(500).json({error});
+      req.login(user, {}, error => {
+        if (error) return res.status(500).json({error: error.message});
         loadInitialData(user, req).then(initialData => {
           res.json({
             ...initialData,
