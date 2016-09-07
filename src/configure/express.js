@@ -16,6 +16,7 @@ function configureApp(app, loginRoute, logoutRoute, userDetailsExtractor, loadIn
             user: userDetailsExtractor(user),
             returnTo: (req.session && req.session.returnTo) ? req.session.returnTo : '/'
           });
+          return null;
         });
       });
     })(req, res, next);

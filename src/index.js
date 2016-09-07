@@ -15,6 +15,6 @@ export function configureRoutes(login, logout) {
   logoutRoute = logout;
 }
 
-export function configureApp(app, userDetailsExtractor, loadInitialData = () => ({})) {
+export function configureApp(app, userDetailsExtractor, loadInitialData = () => Promise.resolve({})) {
   configureExpress(app, loginRoute, logoutRoute, userDetailsExtractor, loadInitialData);
 }
