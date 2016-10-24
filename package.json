@@ -1,9 +1,22 @@
 {
   "name": "express-passport-security",
+  "description": "An opionated library to secure Express apps with Passport",
   "author": "Andy Shea <aa.shea@gmail.com>",
   "version": "0.7.6",
   "license": "MIT",
   "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/andy-shea/express-passport-security"
+  },
+  "homepage": "https://github.com/andy-shea/express-passport-security",
+  "keywords": [
+    "express",
+    "passport",
+    "security",
+    "authentication",
+    "login"
+  ],
   "scripts": {
     "prebuild": "rimraf lib",
     "build": "babel src -d lib",
