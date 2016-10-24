@@ -15,6 +15,16 @@ export function configureRoutes(login, logout) {
   logoutRoute = logout;
 }
 
-export function configureApp(app, userDetailsExtractor, loadInitialData = () => Promise.resolve({})) {
+function defaultUserDetailsExtractor(user) {
+  const extractedUser = {...user};
+  delete extractedUser.password;
+  return extractedUser;
+}
+
+function defaultLoadInitialData() {
+  return Promise.resolve({});
+}
+
+export function configureApp(app, {userDetailsExtractor = defaultUserDetailsExtractor, loadInitialData = defaultLoadInitialData}) {
   configureExpress(app, loginRoute, logoutRoute, userDetailsExtractor, loadInitialData);
 }
