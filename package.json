@@ -23,7 +23,7 @@
     "prepublish": "npm run build"
   },
   "dependencies": {
-    "bluebird": "^3.4.6",
+    "bluebird": "^3.4.7",
     "node-password-util": "^0.1.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0"
