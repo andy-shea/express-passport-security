@@ -540,7 +540,7 @@ bcrypt-pbkdf@^1.0.0:
   dependencies:
     tweetnacl "^0.14.3"
 
-bcryptjs@^2.3.0:
+bcryptjs@2.4.3:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/bcryptjs/-/bcryptjs-2.4.3.tgz#9ab5627b93e60621ff7cdac5da9733027df1d0cb"
 
@@ -554,7 +554,7 @@ block-stream@*:
   dependencies:
     inherits "~2.0.0"
 
-bluebird@^3.4.3, bluebird@^3.5.1:
+bluebird@^3.5.1:
   version "3.5.1"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.5.1.tgz#d9551f9de98f1fcda1e683d17ee91a0602ee2eb9"
 
@@ -1128,12 +1128,12 @@ nan@^2.3.0:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.8.0.tgz#ed715f3fe9de02b57a5e6252d90a96675e1f085a"
 
-node-password-util@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/node-password-util/-/node-password-util-0.1.2.tgz#e38029b34bc470eb072e9e7179bad2312596585c"
+node-password-util@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/node-password-util/-/node-password-util-0.1.3.tgz#bad019c5047572e7f44e753b7b0019c4c3ef1db3"
   dependencies:
-    bcryptjs "^2.3.0"
-    bluebird "^3.4.3"
+    bcryptjs "2.4.3"
+    bluebird "^3.5.1"
 
 node-pre-gyp@^0.6.39:
   version "0.6.39"
